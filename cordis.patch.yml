@@ -4,4 +4,4 @@
 # Opt in to browser_* compatibility aliases with legacyToolNames: true.
 - insert:
     - id: native-browser
-      name: dsh-native-browser
+      name: @wiaoo/dsh-native-browser

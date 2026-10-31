@@ -9,7 +9,7 @@ import { visualActionFromScreenshot } from '../../vision-adapter/src/grounding.j
 import { createSetupController } from './setup.js';
 import { registerHostRoutes } from './host-routes.js';
 
-export const name = 'dsh-native-browser';
+export const name = '@wiaoo/dsh-native-browser';
 export const inject = ['tools', 'connection'];
 export const TOOL_NAMESPACE = 'native_browser';
 export const projectStatus = Object.freeze({ phase: 'development-preview', browser: 'chrome', toolsRegistered: true, toolNamespace: TOOL_NAMESPACE });

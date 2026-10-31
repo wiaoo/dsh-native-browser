@@ -15,7 +15,7 @@ const requiredKeywords = [
 
 const failures = []
 
-if (pkg.name !== 'dsh-native-browser') failures.push('package name must be dsh-native-browser')
+if (pkg.name !== '@wiaoo/dsh-native-browser') failures.push('package name must be @wiaoo/dsh-native-browser')
 if (pkg.license !== 'MIT') failures.push('license metadata must be MIT')
 if (pkg.dsh?.bundle?.patch !== './cordis.patch.yml') failures.push('dsh.bundle.patch must point to ./cordis.patch.yml')
 if (pkg.exports?.['./client'] !== './client.js') failures.push('package exports must expose ./client')
@@ -23,7 +23,7 @@ if (pkg.dsh?.client?.platform !== 'web') failures.push('dsh.client.platform must
 for (const service of ['@deepseek-ai/dsh-api-session-controller', '@deepseek-ai/dsh-client-connection']) {
   if (!pkg.dsh?.client?.inject?.includes(service)) failures.push(`missing DSH client injection: ${service}`)
 }
-if (!pkg.repository?.url?.includes('longmiaoo/dsh-native-browser')) failures.push('repository URL must target longmiaoo/dsh-native-browser')
+if (!pkg.repository?.url?.includes('wiaoo/dsh-native-browser')) failures.push('repository URL must target wiaoo/dsh-native-browser')
 
 for (const keyword of requiredKeywords) {
   if (!pkg.keywords?.includes(keyword)) failures.push(`missing discovery keyword: ${keyword}`)

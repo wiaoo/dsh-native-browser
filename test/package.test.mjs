@@ -6,7 +6,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { projectStatus, name, apply } from '../index.js'
-import { applyObservationUpdate } from 'dsh-native-browser/observations'
+import { applyObservationUpdate } from '@wiaoo/dsh-native-browser/observations'
 import { extensionIdFromManifestKey } from '../dist/packages/installer/src/extension.js'
 
 const execFileAsync = promisify(execFile)
@@ -19,7 +19,7 @@ test('publishes a browser-independent observation reducer with TypeScript declar
 })
 
 test('exports a loadable development-preview Cordis plugin', () => {
-  assert.equal(name, 'dsh-native-browser')
+  assert.equal(name, '@wiaoo/dsh-native-browser')
   assert.equal(typeof apply, 'function')
   assert.deepEqual(projectStatus, {
     phase: 'development-preview',
@@ -60,8 +60,9 @@ test('canonical tools avoid browser_* and optional aliases skip occupied names',
 
 test('bundle patch mounts the published package name', async () => {
   const patch = await readFile(new URL('../cordis.patch.yml', import.meta.url), 'utf8')
+  const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'))
   assert.match(patch, /id: native-browser/)
-  assert.match(patch, /name: dsh-native-browser/)
+  assert.ok(patch.includes(`name: ${pkg.name}`), `bundle patch must mount ${pkg.name}`)
 })
 
 test('CLI prints the packaged extension directory for Chrome setup', async () => {

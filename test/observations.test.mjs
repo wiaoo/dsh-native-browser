@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { ObservationCache } from '../dist/packages/runtime-core/src/observations.js';
-import { applyObservationUpdate } from 'dsh-native-browser/observations';
+import { applyObservationUpdate } from '@wiaoo/dsh-native-browser/observations';
 
 const observation = () => ({ tab: 'tab-a', url: 'https://example.test/form', title: 'Fixture', documentEpoch: 'document-a', revision: 1,
   nodes: Array.from({ length: 40 }, (_, i) => ({ id: `node-${i}`, role: 'button', name: `Fixture action ${i}`, disabled: false })),

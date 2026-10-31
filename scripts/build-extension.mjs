@@ -3,7 +3,7 @@ import { mkdir, copyFile, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const { version: packageVersion } = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
-const versionMatch = /^(\d+)\.(\d+)\.(\d+)(?:-alpha\.(\d+))?$/.exec(packageVersion);
+const versionMatch = /^(\d+)\.(\d+)\.(\d+)(?:-[A-Za-z]+\.(\d+))?$/.exec(packageVersion);
 if (!versionMatch) throw new Error(`Unsupported package version for the Chrome manifest: ${packageVersion}`);
 const extensionVersion = versionMatch[4]
   ? `${versionMatch[1]}.${versionMatch[2]}.${versionMatch[3]}.${versionMatch[4]}`

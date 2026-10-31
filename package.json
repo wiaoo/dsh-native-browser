@@ -1,6 +1,6 @@
 {
-  "name": "dsh-native-browser",
-  "version": "0.1.1",
+  "name": "@wiaoo/dsh-native-browser",
+  "version": "0.1.1-patch.1",
   "description": "Fluid, native Chrome automation for DeepSeek Harness, inspired by Codex browser workflows",
   "type": "module",
   "main": "index.js",
@@ -83,15 +83,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/longmiaoo/dsh-native-browser.git"
+    "url": "git+https://github.com/wiaoo/dsh-native-browser.git"
   },
   "homepage": "https://github.com/longmiaoo/dsh-native-browser#readme",
   "bugs": {
     "url": "https://github.com/longmiaoo/dsh-native-browser/issues"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   },
   "engines": {
     "node": ">=22.19",

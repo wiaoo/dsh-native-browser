@@ -18,7 +18,7 @@ test('built extension keeps HTTPS host access required and plaintext HTTP option
   assert.match(manifest.key, /^[A-Za-z0-9+/]+={0,2}$/);
   assert.equal(extensionIdFromManifestKey(manifest.key), 'cpllfhogobecjohhnonijgmooggjilho');
   const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
-  assert.equal(manifest.version, pkg.version.replace('-alpha.', '.'));
+  assert.equal(manifest.version, pkg.version.replace(/-[A-Za-z]+\./, '.'));
   assert.ok(manifest.permissions.includes('scripting'));
   assert.ok(manifest.permissions.includes('downloads'));
   assert.ok(manifest.permissions.includes('tabs'));
